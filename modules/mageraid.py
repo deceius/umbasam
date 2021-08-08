@@ -8,7 +8,10 @@ import modules.csv_writer as csv_writer
 
 async def start(ctx):
     message = ctx.message
-    embedVar = generate_embed_message(message)
+    if not message.attachments:
+        await message.channel.send(strings.ERROR_MR_PROOF.format(message.author))
+        return
+    embedVar = generate_embed_message(message, message.attachments[0].url)
     msg = await message.channel.send(embed = embedVar, content = strings.MAGE_RAID_START.format(message.author))
     await msg.add_reaction(commands.REACT_SUCCESS)
     await msg.add_reaction(commands.REACT_FAILED)
@@ -16,7 +19,7 @@ async def start(ctx):
     csv_writer.write_to_csv_file(data)
     await message.delete()
 
-def generate_embed_message(message):
+def generate_embed_message(message, image = None):
     embedVar = discord.Embed(title= strings.TITLE, description="", color=0x0000ff)
     embedVar.add_field(name=strings.PARTY_LEADER, value=message.author.display_name, inline=False)
     embedVar.add_field(name=strings.OFFICER_CONFIRMATION, value="--", inline=False)
@@ -24,6 +27,7 @@ def generate_embed_message(message):
     embedVar.add_field(name=strings.STATUS, value=strings.STATUS_STARTED, inline=False)
     embedVar.add_field(name=strings.DATETIME, value=message.created_at, inline=False)
     embedVar.add_field(name="** **", value=strings.PROMPT, inline=False)
+    embedVar.set_thumbnail(url=image)
     return embedVar
 
 def generate_outcome(embed_dict, status, color, officer = None):
