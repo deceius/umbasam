@@ -3,10 +3,14 @@ import discord
 import os
 import constants.strings as strings
 import constants.commands as commands
+from discord.ext import commands as bot_commands
 import modules.mageraid as mageraid
 import modules.quotes as quotes
 
-client = discord.Client()
+
+intents = discord.Intents().all()
+
+bot = bot_commands.Bot(command_prefix="!", intents=intents)
 
 async def reply_siphoned(message):
     return await mageraid.reply_siphoned(message)
@@ -16,24 +20,35 @@ def validate_reaction(embed_dict, reaction, user):
         return False
     return True
 
-@client.event
+@bot.event
 async def on_message(message):
     # we do not want the bot to reply to itself
-    if message.author == client.user:
+    if message.author == bot.user:
         return
+
     if commands.UMBASAM in message.content:
         await message.channel.send(content = quotes.generate_quote()[0])
-    # mage raid stuff
-    if message.content.startswith(commands.MAGE_START):
-        await mageraid.start(message)
-    elif  message.content.startswith(commands.MAGE_SIPHONED): 
-        if await reply_siphoned(message):
-            await mageraid.process_siphoned(message)
-    # non-zvz castle flipping
-    elif message.content.startswith(commands.CASTLE_START):
         return
-       
-@client.event
+        
+    # single liner commands go here
+    await bot.process_commands(message)
+    
+@bot.command(name="umbasam")
+async def cmd_umbasam(ctx):
+    await ctx.channel.send(content = quotes.generate_quote()[0])
+
+@bot.command(name="mageraid")
+async def cmd_mageraid(ctx):
+    await mageraid.start(ctx)
+
+@bot.command(name="siphoned")
+async def cmd_siphoned(ctx, arg):
+    message = ctx.message
+    siphoned_count = arg
+    if await reply_siphoned(message):
+        await mageraid.process_siphoned(message, siphoned_count)
+
+@bot.event
 async def on_reaction_add(reaction, user):
     if reaction.message.author == user:
         return
@@ -57,11 +72,11 @@ async def on_reaction_add(reaction, user):
         return
             
 
-@client.event
+@bot.event
 async def on_ready():
     print("Logged in as")
-    print(client.user.name)
-    print(client.user.id)
+    print(bot.user.name)
+    print(bot.user.id)
     print("------")
 
-client.run("ODczMjM5NDQzMTU3NDI2MTg2.YQ1hmw.urBYdd3v88ziS0sv24w-fwWo7gM")
+bot.run("ODczMjM5NDQzMTU3NDI2MTg2.YQ1hmw.urBYdd3v88ziS0sv24w-fwWo7gM")
