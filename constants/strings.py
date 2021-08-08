@@ -1,4 +1,6 @@
 TITLE="Mage Raid Incentive Tracker"
+
+ID="ID"
 PARTY_LEADER="Party Lead / Reporter"
 DATETIME="Date / Time"
 OFFICER_CONFIRMATION="Officer Confirmation"

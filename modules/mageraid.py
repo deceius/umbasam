@@ -3,23 +3,25 @@ import discord
 import os
 import constants.strings as strings
 import constants.commands as commands
-import modules.csv_writer as csv_writer
+import modules.mageraid_logger as logger
 
 
-async def start(ctx):
+async def start(client, ctx):
     message = ctx.message
     if not message.attachments:
         await message.channel.send(strings.ERROR_MR_PROOF.format(message.author))
         return
-    embedVar = generate_embed_message(message, message.attachments[0].url)
+    embedVar = generate_embed_message(client, message, message.attachments[0].url)
+
+    data = [message.author.display_name, '--', '0', strings.STATUS_STARTED, message.created_at.strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]]
+    msg_id = await logger.add_mage_raid(client, data)
+    embedVar.set_author(name="{0}".format(msg_id))
     msg = await message.channel.send(embed = embedVar, content = strings.MAGE_RAID_START.format(message.author))
     await msg.add_reaction(commands.REACT_SUCCESS)
     await msg.add_reaction(commands.REACT_FAILED)
-    data = [message.author.display_name, '--', '0', strings.STATUS_STARTED, message.created_at]
-    csv_writer.write_to_csv_file(data)
     await message.delete()
 
-def generate_embed_message(message, image = None):
+def generate_embed_message(client, message, image = None):
     embedVar = discord.Embed(title= strings.TITLE, description="", color=0x0000ff)
     embedVar.add_field(name=strings.PARTY_LEADER, value=message.author.display_name, inline=False)
     embedVar.add_field(name=strings.OFFICER_CONFIRMATION, value="--", inline=False)
@@ -30,7 +32,7 @@ def generate_embed_message(message, image = None):
     embedVar.set_thumbnail(url=image)
     return embedVar
 
-def generate_outcome(embed_dict, status, color, officer = None):
+async def generate_outcome(client, embed_dict, status, color, officer = None):
     pt_lead = ""
     date_time = ""
     count = ""
@@ -53,7 +55,7 @@ def generate_outcome(embed_dict, status, color, officer = None):
             field["value"] = strings.PROMPT_DELETE
     embed = discord.Embed.from_dict(embed_dict)
     data = [pt_lead, officer_name, count, status, date_time]
-    csv_writer.update_row(data)
+    await logger.update_mage_raid(client, embed.author.name, data)
     return embed
 
 def validate_reaction(embed_dict, reaction, user):
@@ -124,7 +126,7 @@ async def is_mage_raid_party_leader(reaction, user):
         return True
     return False
 
-async def process_siphoned(message, siphoned_count):
+async def process_siphoned(client, message, siphoned_count):
     msg = await message.channel.fetch_message(message.reference.message_id)
     status = ""
     officer = ""
@@ -144,14 +146,19 @@ async def process_siphoned(message, siphoned_count):
             date_time = field["value"]
     embed = discord.Embed.from_dict(embed_dict)
     data = [pt_lead, officer, siphoned_count, status, date_time]
-    csv_writer.update_row(data)
+    await logger.update_mage_raid(client, embed.author.name, data)
     await msg.edit(embed = embed)
     await message.delete()
 
-async def process_outcome(message):
+async def process_outcome(client, message):
     msg = await message.channel.fetch_message(message.reference.message_id)
     embed = msg.embeds[0]
     embed.set_image(url = message.attachments[0].url)
     embed.set_footer(text = "Outcome Season Points screenshot is attached at: {0}".format(message.created_at))
     await msg.edit(embed = embed)
     await message.delete()
+
+
+async def fetch_mage_raid(ctx, limit):
+    await logger.fetch_mage_raid(ctx, limit)
+    return

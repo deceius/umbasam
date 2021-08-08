@@ -3,6 +3,7 @@ import discord
 import os
 import constants.strings as strings
 import constants.commands as commands
+import constants.tokens as tokens
 from discord.ext import commands as bot_commands
 import modules.mageraid as mageraid
 import modules.quotes as quotes
@@ -46,14 +47,21 @@ async def cmd_umbasam(ctx):
 
 @bot.command(name="mageraid")
 async def cmd_mageraid(ctx):
-    await mageraid.start(ctx)
+    await mageraid.start(bot, ctx)
 
 @bot.command(name="siphoned")
 async def cmd_siphoned(ctx, arg):
     message = ctx.message
     siphoned_count = arg
     if await reply_siphoned(message):
-        await mageraid.process_siphoned(message, siphoned_count)
+        await mageraid.process_siphoned(bot, message, siphoned_count)
+
+@bot.command(name="compile")
+async def cmd_compile(ctx, arg):
+    if not ctx.message.channel.id == tokens.CHANNEL_MAGE_RAID_LOGS_ID:
+        return
+    await mageraid.fetch_mage_raid(ctx, int(arg))
+
 
 @bot.command(name="outcome")
 async def cmd_outcome(ctx):
@@ -90,12 +98,14 @@ async def on_reaction_add(reaction, user):
     if reaction.emoji == commands.REACT_FAILED:
         is_party_lead = await mageraid.is_mage_raid_party_leader(reaction, user)
         if is_party_lead:
-            await reaction.message.edit(embed = mageraid.generate_outcome(embed_dict, strings.STATUS_FAILED, strings.COLOR_FAILED))
+            failed_embed = await mageraid.generate_outcome(bot, embed_dict, strings.STATUS_FAILED, strings.COLOR_FAILED)
+            await reaction.message.edit(embed = failed_embed)
             await reaction.message.add_reaction(commands.REACT_DELETE)
         return
     elif reaction.emoji == commands.REACT_SUCCESS:
         if mageraid.has_officer_role(user):
-            await reaction.message.edit(embed = mageraid.generate_outcome(embed_dict, strings.STATUS_SUCCESS, strings.COLOR_SUCCESS, user))
+            success_embed = await  mageraid.generate_outcome(bot, embed_dict, strings.STATUS_SUCCESS, strings.COLOR_SUCCESS, user)
+            await reaction.message.edit(embed = success_embed)
             await reaction.message.add_reaction(commands.REACT_DELETE)
         return
             
@@ -107,4 +117,4 @@ async def on_ready():
     print(bot.user.id)
     print("------")
 
-bot.run("ODczMjM5NDQzMTU3NDI2MTg2.YQ1hmw.urBYdd3v88ziS0sv24w-fwWo7gM")
+bot.run(tokens.BOT_TOKEN)
