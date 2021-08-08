@@ -59,9 +59,7 @@ def validate_reaction(embed_dict, reaction, user):
 
 def has_officer_role(user):
     for role in user.roles:
-        if role.name == strings.SEASON_RAID_OFFICER:
-            return True
-        if role.name == strings.SHOTCALLER:
+        if role.name == strings.SEASON_RAID_OFFICER or role.name == strings.SHOTCALLER or role.name == strings.ROUND_TABLE:
             return True
     return False
 
