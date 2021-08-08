@@ -6,6 +6,7 @@ import constants.commands as commands
 from discord.ext import commands as bot_commands
 import modules.mageraid as mageraid
 import modules.quotes as quotes
+import modules.guide as guide
 
 
 intents = discord.Intents().all()
@@ -47,6 +48,13 @@ async def cmd_siphoned(ctx, arg):
     siphoned_count = arg
     if await reply_siphoned(message):
         await mageraid.process_siphoned(message, siphoned_count)
+
+@bot.command(name = "umbaguide")
+async def cmd_umbaguide(ctx, arg):
+    if arg == "pvp":
+        await guide.pvp(ctx)
+    elif arg == "cdg":
+        await guide.cdg(ctx)
 
 @bot.command('cta')
 async def cmd_cta(ctx):
