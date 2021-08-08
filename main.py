@@ -16,6 +16,12 @@ bot = bot_commands.Bot(command_prefix="!", intents=intents)
 async def reply_siphoned(message):
     return await mageraid.reply_siphoned(message)
 
+
+async def reply_outcome(message):
+    if not message.attachments:
+        return False
+    return await mageraid.reply_outcome(message)
+
 def validate_reaction(embed_dict, reaction, user):
     if not mageraid.validate_reaction(embed_dict, reaction, user):
         return False
@@ -49,6 +55,12 @@ async def cmd_siphoned(ctx, arg):
     if await reply_siphoned(message):
         await mageraid.process_siphoned(message, siphoned_count)
 
+@bot.command(name="outcome")
+async def cmd_outcome(ctx):
+    message = ctx.message
+    if await reply_outcome(message):
+        await mageraid.process_outcome(message)
+
 @bot.command(name = "umbaguide")
 async def cmd_umbaguide(ctx, arg):
     if arg == "pvp":
@@ -68,7 +80,8 @@ async def on_reaction_add(reaction, user):
     if reaction.message.author == user:
         return
     if reaction.emoji == commands.REACT_DELETE:
-        await reaction.message.delete()
+        if mageraid.has_officer_role(user):
+            await reaction.message.delete()
         return
     embed = reaction.message.embeds[0]
     embed_dict = embed.to_dict()
