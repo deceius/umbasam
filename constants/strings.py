@@ -24,6 +24,7 @@ MAGE_RAID_START="{0.mention} has led a mage raid!"
 ERROR_SIPHONED="{0.mention} Siphoned Energy Update Error. It's either you are not the party lead or you replied to an invalid / resolved mage raid."
 ERROR_SEASON_RAID_OFFICER="{0.mention} nice try. But you are not a mage raid officer."
 ERROR_MR_PROOF="{0.mention} image attachment required. Please attach the current Season Points screenshot."
+INCORRECT_MR_CHANNEL="{0.mention} this is not the #mage-raid channel."
 
 
 
