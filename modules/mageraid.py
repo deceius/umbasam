@@ -6,12 +6,12 @@ import constants.commands as commands
 import modules.csv_writer as csv_writer
 
 
-async def start(message):
+async def start(ctx):
+    message = ctx.message
     embedVar = generate_embed_message(message)
     msg = await message.channel.send(embed = embedVar, content = strings.MAGE_RAID_START.format(message.author))
     await msg.add_reaction(commands.REACT_SUCCESS)
     await msg.add_reaction(commands.REACT_FAILED)
-    
     data = [message.author.display_name, '--', '0', strings.STATUS_STARTED, message.created_at]
     csv_writer.write_to_csv_file(data)
     await message.delete()
@@ -108,7 +108,7 @@ async def is_mage_raid_party_leader(reaction, user):
         return True
     return False
 
-async def process_siphoned(message):
+async def process_siphoned(message, siphoned_count):
     msg = await message.channel.fetch_message(message.reference.message_id)
     status = ""
     officer = ""
@@ -119,7 +119,7 @@ async def process_siphoned(message):
         if field["name"] == strings.PARTY_LEADER:
             pt_lead = field["value"]
         if field["name"] == strings.SIPHONED_ENERGY_COUNT:
-            field["value"] = message.content.split()[1]
+            field["value"] = siphoned_count
         if field["name"] == strings.STATUS:
             status = field["value"]
         if field["name"] == strings.OFFICER_CONFIRMATION:
@@ -127,7 +127,7 @@ async def process_siphoned(message):
         if field["name"] == strings.DATETIME:
             date_time = field["value"]
     embed = discord.Embed.from_dict(embed_dict)
-    data = [pt_lead, officer, message.content.split()[1], status, date_time]
+    data = [pt_lead, officer, siphoned_count, status, date_time]
     csv_writer.update_row(data)
     await msg.edit(embed = embed)
     await message.delete()
