@@ -5,6 +5,7 @@ import constants.strings as strings
 import constants.tokens as tokens
 import constants.commands as commands
 import modules.mageraid_logger as logger
+from datetime import datetime
 
 def is_correct_mr_channel(channel):
     if channel.id in tokens.CHANNEL_MAGE_RAID_SESSION_IDS:
@@ -25,7 +26,7 @@ async def start(client, ctx):
 
     embedVar = generate_embed_message(client, message, message.attachments[0].url)
 
-    data = [message.author.display_name, '--', '0', strings.STATUS_STARTED, message.created_at.strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]]
+    data = [message.author.display_name, '--', '0', strings.STATUS_STARTED, message.created_at.strftime('%Y-%m-%d %H:%M:%S.%f')[:-3], '']
     msg_id = await logger.add_mage_raid(client, data)
     embedVar.set_author(name="{0}".format(msg_id))
     msg = await message.channel.send(embed = embedVar, content = strings.MAGE_RAID_START.format(message.author))
@@ -66,7 +67,7 @@ async def generate_outcome(client, embed_dict, status, color, officer = None):
         if field["name"] == "** **":
             field["value"] = strings.PROMPT_DELETE
     embed = discord.Embed.from_dict(embed_dict)
-    data = [pt_lead, officer_name, count, status, date_time]
+    data = [pt_lead, officer_name, count, status, date_time, datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]]
     await logger.update_mage_raid(client, embed.author.name, data)
     return embed
 
@@ -157,7 +158,7 @@ async def process_siphoned(client, message, siphoned_count):
         if field["name"] == strings.DATETIME:
             date_time = field["value"]
     embed = discord.Embed.from_dict(embed_dict)
-    data = [pt_lead, officer, siphoned_count, status, date_time]
+    data = [pt_lead, officer, siphoned_count, status, date_time, datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]]
     await logger.update_mage_raid(client, embed.author.name, data)
     await msg.edit(embed = embed)
     await message.delete()
@@ -167,6 +168,27 @@ async def process_outcome(client, message):
     embed = msg.embeds[0]
     embed.set_image(url = message.attachments[0].url)
     embed.set_footer(text = "Outcome Season Points screenshot is attached at: {0}".format(message.created_at))
+    status = ""
+    officer = ""
+    pt_lead = ""
+    date_time = ""
+    count = ""
+    embed_dict = msg.embeds[0].to_dict()
+    for field in embed_dict["fields"]:
+        if field["name"] == strings.PARTY_LEADER:
+            pt_lead = field["value"]
+        if field["name"] == strings.SIPHONED_ENERGY_COUNT:
+            count = field["value"]
+        if field["name"] == strings.STATUS:
+            status = field["value"]
+        if field["name"] == strings.OFFICER_CONFIRMATION:
+            officer = field["value"]
+        if field["name"] == strings.DATETIME:
+            date_time = field["value"]
+    embed = discord.Embed.from_dict(embed_dict)
+    data = [pt_lead, officer, count, status, date_time, message.created_at.strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]]
+    await logger.update_mage_raid(client, embed.author.name, data)
+    
     await msg.edit(embed = embed)
     await message.delete()
 
