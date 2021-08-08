@@ -48,6 +48,10 @@ async def cmd_siphoned(ctx, arg):
     if await reply_siphoned(message):
         await mageraid.process_siphoned(message, siphoned_count)
 
+@bot.command('cta')
+async def cmd_cta(ctx):
+    await ctx.channel.send(content = "{0} ".format(ctx.guild.default_role)+ quotes.generate_cta()[0])
+
 @bot.event
 async def on_reaction_add(reaction, user):
     if reaction.message.author == user:
