@@ -17,6 +17,8 @@ async def update_mage_raid(client, msg_id, data):
     return
 
 async def fetch_mage_raid(ctx, limit = 100):
+    
+    header = ["Party Lead / Reporter", "Officer", "Siphoned Count", "Status", "Created Date"]
     data = []
     async for msg in ctx.message.channel.history(limit = limit):
         if msg.content.startswith('#'):
@@ -24,6 +26,7 @@ async def fetch_mage_raid(ctx, limit = 100):
     # write to file
     with open("result.csv", "w") as file:
         writer = csv.writer(file)
+        writer.writerow(header)
         writer.writerows(data)
         
     # send file to Discord in message
