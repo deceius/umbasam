@@ -50,7 +50,10 @@ async def cmd_siphoned(ctx, arg):
 
 @bot.command('cta')
 async def cmd_cta(ctx):
-    await ctx.channel.send(content = "{0} ".format(ctx.guild.default_role)+ quotes.generate_cta()[0])
+    if mageraid.has_officer_role(ctx.message.author):
+        await ctx.channel.send(content = "{0} ".format(ctx.guild.default_role)+ quotes.generate_cta()[0])
+    else:
+        await ctx.channel.send(content = "YOU CAN'T @ everyone. YOU HAVE NO POWAH HERE. ANYWAY, "+ quotes.generate_cta()[0])
 
 @bot.event
 async def on_reaction_add(reaction, user):
