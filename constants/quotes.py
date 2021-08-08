@@ -6,7 +6,9 @@ UMBASAM_QUOTES = [
     "HALIKA DITO MAY 2M KA SAKEN",
     "UBE",
     "SINO SI TALENTADONG PEPENG TUMATAMBLING?",
-    "AY WALANJO"
+    "AY WALANJO",
+    "KILALA MO BA SI ANN MATEO?",
+    "kung si ann mateo gagank sakin ayos lang..."
 ]
 
 UMBASAM_CTA = [
