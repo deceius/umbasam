@@ -41,6 +41,12 @@ async def on_message(message):
     # single liner commands go here
     await bot.process_commands(message)
     
+
+
+@bot.command(name="oath")
+async def cmd_oath(ctx, arg):
+    await ctx.channel.send(content = quotes.generate_oath(arg.lower())[0])
+
 @bot.command(name="umbasam")
 async def cmd_umbasam(ctx):
     await ctx.channel.send(content = quotes.generate_quote()[0])
