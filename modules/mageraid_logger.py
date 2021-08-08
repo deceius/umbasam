@@ -18,7 +18,7 @@ async def update_mage_raid(client, msg_id, data):
 
 async def fetch_mage_raid(ctx, limit = 100):
     
-    header = ["Party Lead / Reporter", "Officer", "Siphoned Count", "Status", "Created Date"]
+    header = ["Party Lead / Reporter", "Officer", "Siphoned Count", "Status", "Created Date", "Last Update Date"]
     data = []
     async for msg in ctx.message.channel.history(limit = limit):
         if msg.content.startswith('#'):
