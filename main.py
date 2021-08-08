@@ -52,9 +52,9 @@ async def cmd_siphoned(ctx, arg):
 @bot.command(name = "umbaguide")
 async def cmd_umbaguide(ctx, arg):
     if arg == "pvp":
-        guide.pvp(ctx)
+        await guide.pvp(ctx)
     elif arg == "cdg":
-        guide.cdg(ctx)
+        await guide.cdg(ctx)
 
 @bot.command('cta')
 async def cmd_cta(ctx):

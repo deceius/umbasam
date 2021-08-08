@@ -6,3 +6,4 @@ async def cdg(ctx):
 
 async def pvp(ctx):
     await ctx.message.channel.send("The Oathbreaker's [MoreThin's PvP Guide]({0})".format(strings.URL_PVP))
+
