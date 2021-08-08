@@ -19,4 +19,4 @@ def generate_oath(oath):
     elif (oath == "frost"):
         return "Frost17 says: '{0}'".format(random.sample(quotes.UMBAFROST_QUOTES, 1)[0])
     elif (oath == "web"):
-        return ["https://deceius.github.io/oathbreakers/"]
+        return "https://deceius.github.io/oathbreakers/"
