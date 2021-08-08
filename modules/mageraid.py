@@ -15,10 +15,12 @@ async def start(client, ctx):
     message = ctx.message
     if not is_correct_mr_channel(ctx.message.channel):
         await message.channel.send(strings.INCORRECT_MR_CHANNEL.format(message.author))
+        await message.delete()
         return
     
     if not message.attachments:
         await message.channel.send(strings.ERROR_MR_PROOF.format(message.author))
+        await message.delete()
         return
 
     embedVar = generate_embed_message(client, message, message.attachments[0].url)
@@ -171,4 +173,5 @@ async def process_outcome(client, message):
 
 async def fetch_mage_raid(ctx, limit):
     await logger.fetch_mage_raid(ctx, limit)
+    await ctx.message.delete()
     return
