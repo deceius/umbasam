@@ -12,7 +12,7 @@ import modules.guide as guide
 
 intents = discord.Intents().all()
 
-bot = bot_commands.Bot(command_prefix="!", intents=intents)
+bot = bot_commands.Bot(command_prefix = "!", intents = intents, help_command = None)
 
 async def reply_siphoned(message):
     return await mageraid.reply_siphoned(message)
