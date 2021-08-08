@@ -11,56 +11,78 @@ UMBASAM_QUOTES = [
     "kung si ann mateo gagank sakin ayos lang..."
 ]
 
-UMBAMEAT_QUOTES = [
-    "HELLO TEAM?!",
+AO_CITIES = ["Thetford", "Bridgewatch", "Caerleon", "Lymhurst", "Fort Sterling", "Archganistan", "Quezon City"]
+OATH_QUOTES = {
+    "meat": [ 
+        "HELLO TEAM?!",
+        "YUNG HEALER NYO ANUNA. HELLO TEAM?",
+        "KAYA SANA YUN EH.",
+        "HELLO TEAM?!",
+    ],
+    "tanod": [
+        "HEY KID... DO YOU WANNA CARAVAN?",
+        "HINDI ESSENTIAL ANG LUGAW MGA SER.",
+        "ECQ NA. SAN QUARANTINE PASS?",
+        "SANAOL TANOD",
+    ],
+    "ryota": [
+        "https://youtu.be/NTdjCgnLGsM",
+        "TANGINA MO BLUVER",
+        "TANGINA MO BLUVER",
+        "TANGINA MO BLUVER",
+        "TANGINA MO BLUVER",
+        "TANGINA MO BLUVER",
+        "TANGINA MO BLUVER",
+        "TANGINA MO BLUVER",
+        "TANGINA MO BLUVER",
+    ],
+    "chokyy": [
+        "LEZGOOOOO",
+        "5, 6, 7, 8!",
+        "okay lang yun ggawa tayo bagong chismis",
+        "With extra service?"
+    ],
+    "frost": [
+        "Ayuko sayangin yung braincells ko sa pag eenglish.",
+        "Oras na bang awayin ulit si Chokyy?"
+    ],
+    "force": [
+        "SHOTCALLER AKO NG BRIDGEWATCH EH.",
+    ],
+    "acro": [
+        "SOGDHIT.",
+        "DOGSHIT.",
+        "DOGSHIT!!!",
+    ],
+    "fudgee": [
+        "https://youtu.be/IJPxHXfTlmw",
+    ],
+    "edutensie": [
+        "WALA KAYO SA FIREWALL KO",
+    ],
+    "lythax": [
+        "ilang linggo kaya bago kita i-regear?",
+        ": (",
+    ],
+    "wilyard": [
+        "hanapin nyo ako sa {0}. 5m.".format(AO_CITIES[0]),
+        "hanapin nyo ako sa {0}. 5m.".format(AO_CITIES[1]),
+        "hanapin nyo ako sa {0}. 5m.".format(AO_CITIES[2]),
+        "hanapin nyo ako sa {0}. 5m.".format(AO_CITIES[3]),
+        "hanapin nyo ako sa {0}. 5m.".format(AO_CITIES[4]),
+        "hanapin nyo ako sa {0}. 5m.".format(AO_CITIES[5]),
+        "hanapin nyo ako sa {0}. 5m.".format(AO_CITIES[6]),
+    ]
 
-]
 
-UMBATANOD_QUOTES = [
-    "HEY KID... DO YOU WANNA CARAVAN?",
-    "HINDI ESSENTIAL ANG LUGAW MGA SER."
-]
-
-UMBARYOTA_QUOTES = [
-    "https://youtu.be/NTdjCgnLGsM",
-    "TANGINA MO BLUVER",
-    "TANGINA MO BLUVER",
-    "TANGINA MO BLUVER",
-    "TANGINA MO BLUVER",
-    "TANGINA MO BLUVER",
-    "TANGINA MO BLUVER",
-    "TANGINA MO BLUVER",
-    "TANGINA MO BLUVER",
-]
-
-UMBACHOKYY_QUOTES = [
-    "LEZGOOOOO",
-    "5, 6, 7, 8!",
-    "okay lang yun ggawa tayo bagong chismis",
-    "gorilla 8===========D Princess Sam",
-    "With extra service?"
+}
 
 
-]
-
-UMBAFROST_QUOTES = [
-    "Ayuko sayangin yung braincells ko sa pag eenglish.",
-    "Oras na bang awayin ulit si Chokyy?"
-]
-
-UMBAOATH_GIFS = [
-    
-]
-
-FORCE = []
 AOMOND_SOUND_FILES = []
 SAM_SOUND_FILES = []
 RANDOM_SHOTCALLER_STUFF = []
 MH_STUFF = []
-LYTHAX = []
-ACRO = []
-FUDGEE = []
-EDUTENSIE = []
+
 CTA = []
 RANDOM_MEMES = []
 

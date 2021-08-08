@@ -8,15 +8,9 @@ def generate_cta():
 
 
 def generate_oath(oath):
-    if (oath == "meat"):
-        return "meatwadcoke says: '{0}'".format(random.sample(quotes.UMBAMEAT_QUOTES, 1)[0])
-    elif (oath == "chokyy"):
-        return "Chokyy says: '{0}'".format(random.sample(quotes.UMBACHOKYY_QUOTES, 1)[0])
-    elif (oath == "ryota"):
-        return  "Ryota says: '{0}'".format(random.sample(quotes.UMBARYOTA_QUOTES, 1)[0])
-    elif (oath == "tanod" or oath == "morethin"):
-        return "MoreThin says: '{0}'".format(random.sample(quotes.UMBATANOD_QUOTES, 1)[0])
-    elif (oath == "frost"):
-        return "Frost17 says: '{0}'".format(random.sample(quotes.UMBAFROST_QUOTES, 1)[0])
-    elif (oath == "web"):
-        return "https://deceius.github.io/oathbreakers/"
+    if oath == "killboard":
+        return "https://kill-board.com/battles?search=The+Oathbreakers"
+    elif oath == "web" or  oath == "deceius":
+        return "http://deceius.github.io/oathbreakers"
+    
+    return random.sample(quotes.OATH_QUOTES[oath], 1)[0]
