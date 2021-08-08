@@ -1,5 +1,6 @@
 import discord
 import constants.tokens as tokens
+import modules.quotes as quotes
 import csv
 import ast
 
@@ -27,5 +28,5 @@ async def fetch_mage_raid(ctx, limit = 100):
         
     # send file to Discord in message
     with open("result.csv", "rb") as file:
-        await ctx.send("Your file is:", file=discord.File(file, "result.csv"))
+        await ctx.send("Attached is the dump file. " + quotes.generate_quote(), file=discord.File(file, "result.csv"))
     return
