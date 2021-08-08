@@ -18,3 +18,5 @@ def generate_oath(oath):
         return "MoreThin says: '{0}'".format(random.sample(quotes.UMBATANOD_QUOTES, 1))
     elif (oath == "frost"):
         return "Frost17 says: '{0}'".format(random.sample(quotes.UMBAFROST_QUOTES, 1))
+    elif (oath == "web"):
+        return ["https://deceius.github.io/oathbreakers/"]
