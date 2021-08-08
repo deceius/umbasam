@@ -28,5 +28,5 @@ async def fetch_mage_raid(ctx, limit = 100):
         
     # send file to Discord in message
     with open("result.csv", "rb") as file:
-        await ctx.send("Attached is the dump file. " + quotes.generate_quote(), file=discord.File(file, "result.csv"))
+        await ctx.send("Attached is the dump file. {0}".format(quotes.generate_quote()[0]), file=discord.File(file, "result.csv"))
     return
