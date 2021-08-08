@@ -67,7 +67,7 @@ async def cmd_compile(ctx, arg):
 async def cmd_outcome(ctx):
     message = ctx.message
     if await reply_outcome(message):
-        await mageraid.process_outcome(message)
+        await mageraid.process_outcome(bot, message)
 
 @bot.command(name = "umbaguide")
 async def cmd_umbaguide(ctx, arg):
