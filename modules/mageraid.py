@@ -2,15 +2,25 @@
 import discord
 import os
 import constants.strings as strings
+import constants.tokens as tokens
 import constants.commands as commands
 import modules.mageraid_logger as logger
 
+def is_correct_mr_channel(channel):
+    if channel.id in tokens.CHANNEL_MAGE_RAID_SESSION_IDS:
+        return True
+    return False
 
 async def start(client, ctx):
     message = ctx.message
+    if not is_correct_mr_channel(ctx.message.channel):
+        await message.channel.send(strings.INCORRECT_MR_CHANNEL.format(message.author))
+        return
+    
     if not message.attachments:
         await message.channel.send(strings.ERROR_MR_PROOF.format(message.author))
         return
+
     embedVar = generate_embed_message(client, message, message.attachments[0].url)
 
     data = [message.author.display_name, '--', '0', strings.STATUS_STARTED, message.created_at.strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]]
