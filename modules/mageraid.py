@@ -61,6 +61,8 @@ def has_officer_role(user):
     for role in user.roles:
         if role.name == strings.SEASON_RAID_OFFICER:
             return True
+        if role.name == strings.SHOTCALLER:
+            return True
     return False
 
 async def validate_message_status(message):
