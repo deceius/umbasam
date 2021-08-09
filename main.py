@@ -34,23 +34,25 @@ async def on_message(message):
     # we do not want the bot to reply to itself
     if message.author == bot.user:
         return
-
     if commands.UMBASAM in message.content:
         await message.channel.send(content = quotes.generate_quote()[0])
         return
-        
     # single liner commands go here
     await bot.process_commands(message)
-    
-
 
 @bot.command(name="oath")
 async def cmd_oath(ctx, arg):
     await ctx.channel.send(content = quotes.generate_oath(arg.lower()))
 
 @bot.command(name="caravan")
-async def cmd_caravan(ctx, arg):
+async def cmd_caravan(ctx, *, arg):
     await caravan.start(ctx, ctx.message, arg)
+
+@bot.command(name="cdone")
+async def cmd_outcome(ctx):
+    message = ctx.message
+    if await caravan.is_caravan_leader(message) or mageraid.has_officer_role(ctx.message.author, strings.CARAVAN_OFFICER):
+        await caravan.notify_caravan(ctx)
 
 @bot.command(name="umbasam")
 async def cmd_umbasam(ctx):
@@ -90,7 +92,7 @@ async def cmd_umbaguide(ctx, arg):
 @bot.command('cta')
 async def cmd_cta(ctx):
     if mageraid.has_officer_role(ctx.message.author, strings.SEASON_RAID_OFFICER):
-        await ctx.channel.send(content = "{0} ".format(ctx.guild.default_role)+ quotes.generate_cta()[0])
+        await ctx.channel.send(content = "{0} ".format("@here")+ quotes.generate_cta()[0])
     else:
         await ctx.channel.send(content = "YOU CAN'T @ everyone. YOU HAVE NO POWAH HERE. ANYWAY, "+ quotes.generate_cta()[0])
 
@@ -104,12 +106,14 @@ async def on_reaction_add(reaction, user):
         return
     embed = reaction.message.embeds[0]
     embed_dict = embed.to_dict()
+
     if not validate_reaction(embed_dict, reaction, user):
         return
     
     if reaction.emoji == commands.REACT_CARAVAN:
         await caravan.add_reaction(reaction)
         return
+
     if reaction.emoji == commands.REACT_FAILED:
         is_party_lead = await mageraid.is_mage_raid_party_leader(reaction, user)
         if is_party_lead:
