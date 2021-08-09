@@ -106,6 +106,9 @@ OATH_QUOTES = {
     "cat": [
         "https://youtu.be/SJK2nfPAqzQ"
     ],
+    "aomond": [
+        "https://media.tenor.co/videos/af5911e65b4c500d73b690d157ebb02e/mp4"
+    ],
     "grant": [
         "Madidismount ko na. Madidismount ko na. MADIDISMOUNT KO NAAAAAAAA",
         "Nadismount ko na lalabanan ko na to",
