@@ -114,6 +114,10 @@ OATH_QUOTES = {
         "Nadismount ko na lalabanan ko na to",
         "makinig kayo kay master grant at gagaling kayo."
     ],
+    "skadoosh": [
+        "HIPO",
+        "HI PO",
+    ],
     "gwynfor": [
         "Gwynfor Foundation ang bahala sayo",
         "https://media.discordapp.net/attachments/824827071829377055/838783996316876871/g2.png"
