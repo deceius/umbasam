@@ -30,12 +30,6 @@ OATH_QUOTES = {
         "https://youtu.be/NTdjCgnLGsM",
         "https://media.discordapp.net/attachments/835664346319290408/873977190017019954/unknown-5-1-1.png",
         "TANGINA MO BLUVER",
-        "TANGINA MO BLUVER",
-        "TANGINA MO BLUVER",
-        "TANGINA MO BLUVER",
-        "TANGINA MO BLUVER",
-        "TANGINA MO BLUVER",
-        "TANGINA MO BLUVER",
     ],
     "chokyy": [
         "LEZGOOOOO",
