@@ -87,6 +87,9 @@ OATH_QUOTES = {
     "seq": [
         "ANAK NG--"
     ],
+    "chun": [
+        "https://site-cdn.givemesport.com/images/21/07/29/caf7cf5d631a1350fcc19453dc1fd0ad/1204.jpg"
+    ],
     "mavs": [
         "Par quota nako",
         "Par quota kana?"
