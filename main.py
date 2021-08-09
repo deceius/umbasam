@@ -9,6 +9,7 @@ import modules.mageraid as mageraid
 import modules.quotes as quotes
 import modules.guide as guide
 import modules.caravan as caravan
+import modules.party as party
 
 
 intents = discord.Intents().all()
@@ -49,7 +50,7 @@ async def cmd_caravan(ctx, *, arg):
     await caravan.start(ctx, ctx.message, arg)
 
 @bot.command(name="cdone")
-async def cmd_outcome(ctx):
+async def cmd_cdone(ctx):
     message = ctx.message
     if await caravan.is_caravan_leader(message) or mageraid.has_officer_role(ctx.message.author, strings.CARAVAN_OFFICER):
         await caravan.notify_caravan(ctx)
@@ -95,6 +96,19 @@ async def cmd_cta(ctx):
         await ctx.channel.send(content = "{0} ".format("@here")+ quotes.generate_cta()[0])
     else:
         await ctx.channel.send(content = "YOU CAN'T @ everyone. YOU HAVE NO POWAH HERE. ANYWAY, "+ quotes.generate_cta()[0])
+
+
+@bot.command(name = "ptfind")
+async def cmd_party(ctx, *, arg):
+    await party.start(ctx, arg)
+    return
+
+@bot.command(name = "ptfound")
+async def cmd_party_found(ctx):
+    message = ctx.message
+    if await caravan.is_caravan_leader(message):
+        await party.found(ctx)
+        return
 
 @bot.event
 async def on_reaction_add(reaction, user):

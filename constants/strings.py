@@ -37,3 +37,8 @@ CARAVAN_OFFICER_ID=874138448913645648
 CARAVAN_OFFICER="Caravan Officer"
 CARAVAN_ROUTE="Caravan Route"
 CARAVAN_PROMPT="This caravan request requires {0} {1} reactions to notify the Officers. If you reacted on this, make sure that you are present on the caravan schedule to be announced.\n\nReply !cdone command to this message to mark this caravan as 'Done'. This can only be done by the Party Lead / Reporter or a Caravan Officer."
+
+
+PARTY_TITLE="Party Finder"
+PARTY_REPORT="Hello {0}. {1.mention} wants to form a {2} group. Help a guildie out!"
+PARTY_CONTENT="Content"
