@@ -8,6 +8,7 @@ from discord.ext import commands as bot_commands
 import modules.mageraid as mageraid
 import modules.quotes as quotes
 import modules.guide as guide
+import modules.caravan as caravan
 
 
 intents = discord.Intents().all()
@@ -47,6 +48,10 @@ async def on_message(message):
 async def cmd_oath(ctx, arg):
     await ctx.channel.send(content = quotes.generate_oath(arg.lower()))
 
+@bot.command(name="caravan")
+async def cmd_caravan(ctx, arg):
+    await caravan.start(ctx, ctx.message, arg)
+
 @bot.command(name="umbasam")
 async def cmd_umbasam(ctx):
     await ctx.channel.send(content = quotes.generate_quote()[0])
@@ -84,7 +89,7 @@ async def cmd_umbaguide(ctx, arg):
 
 @bot.command('cta')
 async def cmd_cta(ctx):
-    if mageraid.has_officer_role(ctx.message.author):
+    if mageraid.has_officer_role(ctx.message.author, strings.SEASON_RAID_OFFICER):
         await ctx.channel.send(content = "{0} ".format(ctx.guild.default_role)+ quotes.generate_cta()[0])
     else:
         await ctx.channel.send(content = "YOU CAN'T @ everyone. YOU HAVE NO POWAH HERE. ANYWAY, "+ quotes.generate_cta()[0])
@@ -94,7 +99,7 @@ async def on_reaction_add(reaction, user):
     if reaction.message.author == user:
         return
     if reaction.emoji == commands.REACT_DELETE:
-        if mageraid.has_officer_role(user):
+        if mageraid.has_officer_role(user, strings.SEASON_RAID_OFFICER):
             await reaction.message.delete()
         return
     embed = reaction.message.embeds[0]
@@ -109,7 +114,7 @@ async def on_reaction_add(reaction, user):
             await reaction.message.add_reaction(commands.REACT_DELETE)
         return
     elif reaction.emoji == commands.REACT_SUCCESS:
-        if mageraid.has_officer_role(user):
+        if mageraid.has_officer_role(user, strings.SEASON_RAID_OFFICER):
             success_embed = await  mageraid.generate_outcome(bot, embed_dict, strings.STATUS_SUCCESS, strings.COLOR_SUCCESS, user)
             await reaction.message.edit(embed = success_embed)
             await reaction.message.add_reaction(commands.REACT_DELETE)
