@@ -30,6 +30,7 @@ OATH_QUOTES = {
         "https://youtu.be/NTdjCgnLGsM",
         "https://media.discordapp.net/attachments/835664346319290408/873977190017019954/unknown-5-1-1.png",
         "TANGINA MO BLUVER",
+        "https://media.discordapp.net/attachments/701113620687355974/841649094741196850/unknown.png"
     ],
     "chokyy": [
         "LEZGOOOOO",
@@ -51,7 +52,7 @@ OATH_QUOTES = {
         "DOGSHIT!!!",
     ],
     "fudgee": [
-        "https://cdn.discordapp.com/attachments/835664346319290408/873974160488017960/received_168157182003014.mp4",
+        "https://streamable.com/a0sfl6"
     ],
     "edutensie": [
         "WALA KAYO SA FIREWALL KO",
@@ -77,7 +78,8 @@ OATH_QUOTES = {
         "https://media.discordapp.net/attachments/835664346319290408/873976052928643143/unknown.png"
     ],
     "alex": [
-        "https://i.imgur.com/iwhR5nd.png"
+        "https://i.imgur.com/iwhR5nd.png",
+        "https://cdnb.artstation.com/p/assets/images/images/022/498/157/large/luciano-comizzo-greataxe.jpg"
     ],
     "klayne": [
         "https://youtu.be/N5wGmmoNsJw"
