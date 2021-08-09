@@ -106,6 +106,10 @@ async def on_reaction_add(reaction, user):
     embed_dict = embed.to_dict()
     if not validate_reaction(embed_dict, reaction, user):
         return
+    
+    if reaction.emoji == commands.REACT_CARAVAN:
+        await caravan.add_reaction(reaction)
+        return
     if reaction.emoji == commands.REACT_FAILED:
         is_party_lead = await mageraid.is_mage_raid_party_leader(reaction, user)
         if is_party_lead:

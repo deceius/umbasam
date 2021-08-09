@@ -33,6 +33,6 @@ URL_PVP = "https://deceius.github.io/oathbreakers/pvp-guide"
 
 CARAVAN_TITLE="Caravan Request"
 CARAVAN_REPORT="{0.mention} has requested a caravan."
-CARAVAN_OFFICER="Caravan Officer"
+CARAVAN_OFFICER_ID=874138448913645648
 CARAVAN_ROUTE="Caravan Route"
 CARAVAN_PROMPT="This caravan request requires {0} {1} reactions to notify the Officers. If you reacted on this, make sure that you are present on the caravan schedule to be announced."
