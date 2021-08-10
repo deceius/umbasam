@@ -52,7 +52,7 @@ async def cmd_caravan(ctx, *, arg):
 @bot.command(name="cdone")
 async def cmd_cdone(ctx):
     message = ctx.message
-    if await caravan.is_caravan_leader(message) or mageraid.has_officer_role(ctx.message.author, strings.CARAVAN_OFFICER):
+    if await caravan.is_caravan_leader(message) or mageraid.has_officer_role(ctx.message.author, strings.CARAVAN_OFFICER_ID):
         await caravan.notify_caravan(ctx)
 
 @bot.command(name="umbasam")
@@ -92,7 +92,7 @@ async def cmd_umbaguide(ctx, arg):
 
 @bot.command('cta')
 async def cmd_cta(ctx):
-    if mageraid.has_officer_role(ctx.message.author, strings.SEASON_RAID_OFFICER):
+    if mageraid.has_officer_role(ctx.message.author, strings.SEASON_RAID_OFFICER_ID):
         await ctx.channel.send(content = "{0} ".format("@here")+ quotes.generate_cta()[0])
     else:
         await ctx.channel.send(content = "YOU CAN'T @ everyone. YOU HAVE NO POWAH HERE. ANYWAY, "+ quotes.generate_cta()[0])
@@ -115,7 +115,7 @@ async def on_reaction_add(reaction, user):
     if reaction.message.author == user:
         return
     if reaction.emoji == commands.REACT_DELETE:
-        if mageraid.has_officer_role(user, strings.SEASON_RAID_OFFICER):
+        if mageraid.has_officer_role(user, strings.SEASON_RAID_OFFICER_ID):
             await reaction.message.delete()
         return
     embed = reaction.message.embeds[0]
@@ -136,7 +136,7 @@ async def on_reaction_add(reaction, user):
             await reaction.message.add_reaction(commands.REACT_DELETE)
         return
     elif reaction.emoji == commands.REACT_SUCCESS:
-        if mageraid.has_officer_role(user, strings.SEASON_RAID_OFFICER):
+        if mageraid.has_officer_role(user, strings.SEASON_RAID_OFFICER_ID):
             success_embed = await  mageraid.generate_outcome(bot, embed_dict, strings.STATUS_SUCCESS, strings.COLOR_SUCCESS, user)
             await reaction.message.edit(embed = success_embed)
             await reaction.message.add_reaction(commands.REACT_DELETE)

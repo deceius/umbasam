@@ -5,7 +5,7 @@ PARTY_LEADER="Party Lead / Reporter"
 DATETIME="Date / Time"
 OFFICER_CONFIRMATION="Officer Confirmation"
 SIPHONED_ENERGY_COUNT="Siphoned Energy Count"
-SEASON_RAID_OFFICER="Season Raid Officer"
+SEASON_RAID_OFFICER_ID=873422252698374164
 SHOTCALLER="Shotcaller"
 ROUND_TABLE="Round Table"
 STATUS="Status"
@@ -34,7 +34,6 @@ URL_PVP = "https://deceius.github.io/oathbreakers/pvp-guide"
 CARAVAN_TITLE="Caravan Request"
 CARAVAN_REPORT="Hello {0}. {1.mention} has requested a caravan. Help a guildie out!"
 CARAVAN_OFFICER_ID=874138448913645648
-CARAVAN_OFFICER="Caravan Officer"
 CARAVAN_ROUTE="Caravan Route"
 CARAVAN_PROMPT="This caravan request requires {0} {1} reactions to notify the Officers. If you reacted on this, make sure that you are present on the caravan schedule to be announced.\n\nReply !cdone command to this message to mark this caravan as 'Done'. This can only be done by the Party Lead / Reporter or a Caravan Officer."
 
