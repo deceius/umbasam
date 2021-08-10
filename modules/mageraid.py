@@ -76,9 +76,9 @@ def validate_reaction(embed_dict, reaction, user):
         return False
     return True
 
-def has_officer_role(user, role_name):
+def has_officer_role(user, role_id):
     for role in user.roles:
-        if role.name == role_name:
+        if role.id == role_id:
             return True
     return False
 
