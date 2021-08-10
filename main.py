@@ -45,6 +45,32 @@ async def on_message(message):
 async def cmd_oath(ctx, arg):
     await ctx.channel.send(content = quotes.generate_oath(arg.lower()))
 
+
+@bot.command(name="mdps")
+async def cmd_party_set_role(ctx, arg):
+    await party.set_role(ctx, "mdps", arg)
+    return
+
+@bot.command(name="rdps")
+async def cmd_party_set_role(ctx, arg):
+    await party.set_role(ctx, "rdps", arg)
+    return
+
+@bot.command(name="tank")
+async def cmd_party_set_role(ctx, arg):
+    await party.set_role(ctx, "tank", arg)
+    return
+
+@bot.command(name="supp")
+async def cmd_party_set_role(ctx, arg):
+    await party.set_role(ctx, "supp", arg)
+    return
+
+@bot.command(name="heal")
+async def cmd_party_set_role(ctx, arg):
+    await party.set_role(ctx, "heal", arg)
+    return
+
 @bot.command(name="caravan")
 async def cmd_caravan(ctx, *, arg):
     await caravan.start(ctx, ctx.message, arg)
@@ -126,6 +152,10 @@ async def on_reaction_add(reaction, user):
     
     if reaction.emoji == commands.REACT_CARAVAN:
         await caravan.add_reaction(reaction)
+        return
+
+    if reaction.emoji in party.get_roles():
+        await party.fulfill_role(reaction)
         return
 
     if reaction.emoji == commands.REACT_FAILED:
