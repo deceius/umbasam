@@ -39,5 +39,5 @@ CARAVAN_PROMPT="This caravan request requires {0} {1} reactions to notify the Of
 
 
 PARTY_TITLE="Party Finder"
-PARTY_REPORT="Hello {0}. {1.mention} wants to form a {2} group. Help a guildie out!"
+PARTY_REPORT="Hello {0}. {1.mention} wants to form a {2} group. Help a guildie out!\nIf you want to discuss further about your party composition, please create a Thread."
 PARTY_CONTENT="Content"

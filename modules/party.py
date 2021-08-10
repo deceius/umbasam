@@ -16,36 +16,7 @@ async def start(ctx, content_reason):
 
 async def found(ctx):
     msg = await ctx.message.channel.fetch_message(ctx.message.reference.message_id)
-
-    mdps_count = get(msg.reactions, emoji=commands.REACT_ROLE_MDPS).count - 1 
-    rdps_count = get(msg.reactions, emoji=commands.REACT_ROLE_RDPS).count - 1 
-    supp_count = get(msg.reactions, emoji=commands.REACT_ROLE_SUPP).count - 1 
-    tank_count = get(msg.reactions, emoji=commands.REACT_ROLE_TANK).count - 1 
-    heal_count = get(msg.reactions, emoji=commands.REACT_ROLE_HEAL).count - 1 
-    roles = "{0} MDPS - {5}\n{1} RDPS - {6}\n{2} SUPP - {7}\n{3} TANK - {8}\n{4} HEAL - {9}".format(
-            commands.REACT_ROLE_MDPS,
-            commands.REACT_ROLE_RDPS,
-            commands.REACT_ROLE_SUPP,
-            commands.REACT_ROLE_TANK,
-            commands.REACT_ROLE_HEAL,
-            mdps_count,
-            rdps_count,
-            supp_count,
-            tank_count,
-            heal_count
-            )
-    embed_dict =  msg.embeds[0].to_dict()
-    embed_dict["color"] = strings.COLOR_SUCCESS
-    for field in embed_dict["fields"]:
-        if field["name"] == "React your Role:":
-            field["value"] = roles
-    embed = discord.Embed.from_dict(embed_dict)
-    await msg.clear_reaction(commands.REACT_ROLE_MDPS)
-    await msg.clear_reaction(commands.REACT_ROLE_RDPS)
-    await msg.clear_reaction(commands.REACT_ROLE_HEAL)
-    await msg.clear_reaction(commands.REACT_ROLE_TANK)
-    await msg.clear_reaction(commands.REACT_ROLE_SUPP)
-    await msg.edit(embed = embed, content = "This group has been formed. GLHF bois!")
+    await msg.edit(content = "This group has been marked formed. GLHF bois!")
     await ctx.message.delete()
     return
 
@@ -60,6 +31,7 @@ def generate_embed_message(message, content_reason, image = None):
     embedVar.add_field(name="{0} TANK".format(commands.REACT_ROLE_TANK), value="--", inline=False)
     embedVar.add_field(name="{0} HEAL".format(commands.REACT_ROLE_HEAL), value="--", inline=False)
     embedVar.add_field(name=strings.DATETIME, value=message.created_at, inline=False)
+    embedVar.set_footer(text = "Select only your *MAIN* role.")
     if not image == None:
         embedVar.set_thumbnail(url=image)
     return embedVar
@@ -97,25 +69,40 @@ async def fulfill_role(reaction):
     embed_dict =  msg.embeds[0].to_dict()
     for field in embed_dict["fields"]:
         if field["name"] == "{0} MDPS".format(commands.REACT_ROLE_MDPS):
-            roles["mdps"] = int(field["value"]) if not field["value"] == "--" else 0
+            roles["mdps"] = int(field["value"]) if field["value"].isdigit() else 0
         if field["name"] == "{0} RDPS".format(commands.REACT_ROLE_RDPS):
-            roles["rdps"] = int(field["value"]) if not field["value"] == "--" else 0
+            roles["rdps"] = int(field["value"]) if field["value"].isdigit() else 0
         if field["name"] == "{0} SUPP".format(commands.REACT_ROLE_SUPP):
-            roles["supp"] = int(field["value"]) if not field["value"] == "--" else 0
+            roles["supp"] = int(field["value"]) if field["value"].isdigit() else 0
         if field["name"] == "{0} TANK".format(commands.REACT_ROLE_TANK):
-            roles["tank"] = int(field["value"]) if not field["value"] == "--" else 0
+            roles["tank"] = int(field["value"]) if field["value"].isdigit() else 0
         if field["name"] == "{0} HEAL".format(commands.REACT_ROLE_HEAL):
-            roles["heal"] = int(field["value"]) if not field["value"] == "--" else 0
+            roles["heal"] = int(field["value"]) if field["value"].isdigit() else 0
     users = []
-    if reaction.emoji == commands.REACT_ROLE_MDPS:
-        if not roles["mdps"] == 0:
-            users = await get_users_by_emoji(reaction, commands.REACT_ROLE_MDPS)
-            if len(users) - 1 == roles["mdps"]:
-                embed_dict = update_role_embed(reaction.message.author, embed_dict, "{0} MDPS".format(commands.REACT_ROLE_MDPS), users)
-                await reaction.message.clear_reaction(commands.REACT_ROLE_MDPS)
+    print(roles)
+    embed_dict = await process_comp(reaction, embed_dict, roles["mdps"], "{0} MDPS".format(commands.REACT_ROLE_MDPS), commands.REACT_ROLE_MDPS)
+    embed_dict = await process_comp(reaction, embed_dict, roles["rdps"], "{0} RDPS".format(commands.REACT_ROLE_RDPS), commands.REACT_ROLE_RDPS)
+    embed_dict = await process_comp(reaction, embed_dict, roles["tank"], "{0} TANK".format(commands.REACT_ROLE_TANK), commands.REACT_ROLE_TANK)
+    embed_dict = await process_comp(reaction, embed_dict, roles["heal"], "{0} HEAL".format(commands.REACT_ROLE_HEAL), commands.REACT_ROLE_HEAL)
+    embed_dict = await process_comp(reaction, embed_dict, roles["supp"], "{0} SUPP".format(commands.REACT_ROLE_SUPP), commands.REACT_ROLE_SUPP)
+    
     embed = discord.Embed.from_dict(embed_dict)
     await msg.edit(embed = embed)
     return
+
+async def process_comp(reaction, embed_dict, role_value, field_name, emoji):
+    print("checking if emoji matches: " + str(reaction.emoji) + " = " + str(emoji) + str(reaction.emoji == emoji))
+    if reaction.emoji == emoji:
+        print("checkng if role is not zero: " + str(role_value == 0))
+        if not role_value == 0:
+            users = await get_users_by_emoji(reaction, emoji)
+            print("checkng if users are valid: " + str(len(users) - 1 == role_value))
+            if len(users) - 1 == role_value:
+                print(emoji)
+                embed_dict = update_role_embed(reaction.message.author, embed_dict, field_name, users)
+                await reaction.message.clear_reaction(emoji)
+                return embed_dict
+    return embed_dict
 
 async def get_users_by_emoji(reaction, emoji):
     users = []
