@@ -48,27 +48,32 @@ async def cmd_oath(ctx, arg):
 
 @bot.command(name="mdps")
 async def cmd_party_set_role(ctx, arg):
-    await party.set_role(ctx, "mdps", arg)
+    if await caravan.is_caravan_leader(ctx.message):
+        await party.set_role(ctx, "mdps", arg)
     return
 
 @bot.command(name="rdps")
 async def cmd_party_set_role(ctx, arg):
-    await party.set_role(ctx, "rdps", arg)
+    if await caravan.is_caravan_leader(ctx.message):
+        await party.set_role(ctx, "rdps", arg)
     return
 
 @bot.command(name="tank")
 async def cmd_party_set_role(ctx, arg):
-    await party.set_role(ctx, "tank", arg)
+    if await caravan.is_caravan_leader(ctx.message):
+        await party.set_role(ctx, "tank", arg)
     return
 
 @bot.command(name="supp")
 async def cmd_party_set_role(ctx, arg):
-    await party.set_role(ctx, "supp", arg)
+    if await caravan.is_caravan_leader(ctx.message):
+        await party.set_role(ctx, "supp", arg)
     return
 
 @bot.command(name="heal")
 async def cmd_party_set_role(ctx, arg):
-    await party.set_role(ctx, "heal", arg)
+    if await caravan.is_caravan_leader(ctx.message):
+        await party.set_role(ctx, "heal", arg)
     return
 
 @bot.command(name="caravan")

@@ -31,7 +31,7 @@ def generate_embed_message(message, content_reason, image = None):
     embedVar.add_field(name="{0} TANK".format(commands.REACT_ROLE_TANK), value="--", inline=False)
     embedVar.add_field(name="{0} HEAL".format(commands.REACT_ROLE_HEAL), value="--", inline=False)
     embedVar.add_field(name=strings.DATETIME, value=message.created_at, inline=False)
-    embedVar.set_footer(text = "Select only your *MAIN* role.")
+    embedVar.set_footer(text = "To define needed roles, reply `!<role> <required_member_count>` on this message.\nIf done using this, reply with `!ptfound`.\n\nSelect only your *MAIN* role.")
     if not image == None:
         embedVar.set_thumbnail(url=image)
     return embedVar
