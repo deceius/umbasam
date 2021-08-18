@@ -10,6 +10,7 @@ import modules.quotes as quotes
 import modules.guide as guide
 import modules.caravan as caravan
 import modules.party as party
+import urllib.request
 
 
 intents = discord.Intents().all()
@@ -43,7 +44,12 @@ async def on_message(message):
 
 @bot.command(name="oath")
 async def cmd_oath(ctx, arg):
-    await ctx.channel.send(content = quotes.generate_oath(arg.lower()))
+    result = quotes.generate_oath(arg.lower())
+    if result.startswith("#"):
+        file = open(result[1:], "rb")
+        await ctx.channel.send(file = discord.File(file))
+    else:
+        await ctx.channel.send(content = result)
 
 
 @bot.command(name="mdps")
