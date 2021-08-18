@@ -30,6 +30,7 @@ OATH_QUOTES = {
         "https://youtu.be/NTdjCgnLGsM",
         "https://media.discordapp.net/attachments/835664346319290408/873977190017019954/unknown-5-1-1.png",
         "TANGINA MO BLUVER",
+        "https://media.discordapp.net/attachments/873398167587131452/877544142408925194/unknown.png",
         "https://media.discordapp.net/attachments/701113620687355974/841649094741196850/unknown.png"
     ],
     "chokyy": [
@@ -41,7 +42,8 @@ OATH_QUOTES = {
     "frost": [
         "Ayuko sayangin yung braincells ko sa pag eenglish.",
         "Oras na bang awayin ulit si Chokyy?",
-        "Taaaaaaang ina PLDDDDDT ANOOO NA"
+        "Taaaaaaang ina PLDDDDDT ANOOO NA",
+        "https://media.discordapp.net/attachments/835664346319290408/876174314163036200/ezgif.com-gif-maker.gif"
     ],
     "force": [
         "SHOTCALLER AKO NG BRIDGEWATCH EH.",
@@ -52,10 +54,14 @@ OATH_QUOTES = {
         "DOGSHIT!!!",
     ],
     "fudgee": [
-        "https://streamable.com/a0sfl6"
+        "#Oath_Fudgee.mp3"
+    ],
+    "yuuka": [
+        "IZZY DOGSHIT"
     ],
     "edutensie": [
         "WALA KAYO SA FIREWALL KO",
+        "tanginang manok to ang ingay, tinola ka saken mamaya"
     ],
     "lythax": [
         "ilang linggo kaya bago kita i-regear?",
@@ -71,11 +77,13 @@ OATH_QUOTES = {
         "hanapin nyo ako sa {0}. 5m.".format(AO_CITIES[6]),
     ],
     "albion": [
-        "Albion Online is a sandbox mmorpg in which you get to write your own story, instead of following a laid out path. Explore a vast open world consisting of different unique biomes. Everything you do has an impact on the world, as in our player-driven economy every piece of equipment is crafted by players from resources gathered from players. The equipment you wear defines what you are. Switching from knight to magician is as easy as switching your armor and your weapon, or be a combination of the two. Venture out into the world or into dungeons and face Albion's inhabitants and wildlife. Go on expeditions to encounter even more challenges. Fight other players in open world clashes. Fight over territory, or city control in tactical group battles. Relax by retreating to your personal island. Build a home. Grow crops. Raise animals. Join a guild! Everything is more fun when you work together. Leave your mark in the world. In Albion, everybody matters.",
+        "Albion Online is a sandbox mmorpg in which you get to write your own st, instead of following a laid out path. Explore a vast open world consisting of different unique biomes. Everything you do has an impact on the world, as in our player-driven economy every piece of equipment is crafted by players from resources gathered from players. The equipment you wear defines what you are. Switching from knight to magician is as easy as switching your armor and your weapon, or be a combination of the two. Venture out into the world or into dungeons and face Albion's inhabitants and wildlife. Go on expeditions to encounter even more challenges. Fight other players in open world clashes. Fight over territory, or city control in tactical group battles. Relax by retreating to your personal island. Build a home. Grow crops. Raise animals. Join a guild! Everything is more fun when you work together. Leave your mark in the world. In Albion, everybody matters.",
         "albion online es un mmorpg no lineal en el que escribes tu propia historia sin limitarte a seguir un camino prefijado, explora un amplio mundo abierto con cinco biomas unicos, todo cuanto hagas tendra su repercusíon en el mundo, con su economia orientada al jugador de albion los jugadores crean practicamente todo el equipo a partir de los recursos que consiguen, el equipo que llevas define quien eres, cambia de arma y armadura para pasar de caballero a mago o juego como una mezcla de ambas clases, aventurate en el mundo abierto y haz frente a los habitantes y las criaturas de albion, inicia expediciones o adentrate en mazmorras en las que encontraras enemigos aun mas dificiles, enfrentate a otros jugadores en encuentros en el mundo abierto, lucha por los territorios o por ciudades enteras en batallas tacticas, relajate en tu isla privada donde podras construir un hogar, cultivar cosechas, criar animales, unete a un gremio, todo es mejor cuando se trabaja en grupo [musica] adentrate ya en el mundo de albion y escribe tu propia historia."
     ],
     "devynn": [
-        "https://media.discordapp.net/attachments/835664346319290408/873976052928643143/unknown.png"
+        "https://media.discordapp.net/attachments/835664346319290408/873976052928643143/unknown.png",
+        "https://media.discordapp.net/attachments/873398167587131452/875715390355963935/unknown.png",
+        "https://media.discordapp.net/attachments/873398167587131452/875715673542783037/unknown.png"
     ],
     "alex": [
         "https://i.imgur.com/iwhR5nd.png",
@@ -106,7 +114,7 @@ OATH_QUOTES = {
         "https://youtu.be/SJK2nfPAqzQ"
     ],
     "aomond": [
-        "https://media.tenor.co/videos/af5911e65b4c500d73b690d157ebb02e/mp4"
+        "#Oath_Aomond_1.mp3"
     ],
     "grant": [
         "Madidismount ko na. Madidismount ko na. MADIDISMOUNT KO NAAAAAAAA",
