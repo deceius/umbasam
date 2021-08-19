@@ -50,7 +50,7 @@ async def cmd_dm(ctx, user: discord.User, msg):
     print(user)
     if mageraid.has_officer_role(ctx.author, strings.SEASON_RAID_OFFICER_ID):
         log_channel = bot.get_channel(tokens.WARNING_LOGS_CHANNEL_ID)
-        log_channel.send("{0} DM'd {1}: {2}".format(ctx.author.name, user.name, msg))
+        await log_channel.send("{0} DM'd {1}: {2}".format(ctx.author.name, user.name, msg))
         await user.send(msg)
     
 
