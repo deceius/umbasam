@@ -45,7 +45,7 @@ async def on_message(message):
     await bot.process_commands(message)
 
 
-@bot.command(name="warn")
+@bot.command(name="umbawarn")
 async def cmd_dm(ctx, user: discord.User, msg):
     print(user)
     if mageraid.has_officer_role(ctx.author, strings.SEASON_RAID_OFFICER_ID):
