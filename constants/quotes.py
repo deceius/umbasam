@@ -19,6 +19,7 @@ OATH_QUOTES = {
         "YUNG HEALER NYO ANUNA. HELLO TEAM?",
         "KAYA SANA YUN EH.",
         "HELLO TEAM?!",
+        "https://media.discordapp.net/attachments/839303530946494475/876097198390136882/unknown.png"
     ],
     "tanod": [
         "HEY KID... DO YOU WANNA CARAVAN?",
