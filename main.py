@@ -1,4 +1,5 @@
 # Work with Python 3.6
+from logging import log
 import discord
 import os
 import constants.strings as strings
@@ -31,6 +32,7 @@ def validate_reaction(embed_dict, reaction, user):
         return False
     return True
 
+
 @bot.event
 async def on_message(message):
     # we do not want the bot to reply to itself
@@ -41,6 +43,17 @@ async def on_message(message):
         return
     # single liner commands go here
     await bot.process_commands(message)
+
+
+@bot.command(name="warn")
+async def cmd_dm(ctx, user: discord.User, msg):
+    print(user)
+    if mageraid.has_officer_role(ctx.author, strings.SEASON_RAID_OFFICER_ID):
+        log_channel = ctx.get_channel(tokens.WARNING_LOGS_CHANNEL_ID)
+        log_channel.send("{0} DM'd {1}: {2}".format(ctx.author.name, user.name, msg))
+        await user.send(msg)
+    
+
 
 @bot.command(name="oath")
 async def cmd_oath(ctx, arg):
