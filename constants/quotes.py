@@ -125,7 +125,7 @@ OATH_QUOTES = {
     "yuuka": [
         "https://media.discordapp.net/attachments/873398167587131452/877783021187645450/unknown.png",
         "https://media.discordapp.net/attachments/873398167587131452/877783865136148501/unknown.png"
-    ]
+    ],
     "skadoosh": [
         "HIPO",
         "HI PO",
