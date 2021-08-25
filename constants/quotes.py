@@ -35,10 +35,7 @@ OATH_QUOTES = {
         "https://media.discordapp.net/attachments/701113620687355974/841649094741196850/unknown.png"
     ],
     "chokyy": [
-        "LEZGOOOOO",
-        "5, 6, 7, 8!",
-        "okay lang yun ggawa tayo bagong chismis",
-        "With extra service?"
+        "https://media.discordapp.net/attachments/873398167587131452/879946329051238460/choki_kupal.png",
     ],
     "frost": [
         "Ayuko sayangin yung braincells ko sa pag eenglish.",
