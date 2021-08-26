@@ -59,7 +59,6 @@ async def cmd_dm(ctx, user: discord.User, msg):
 async def cmd_fudgeethanks(ctx):
     fudgee_id = '<@279712702816059392>'
     await ctx.channel.send(content = "Thank you {0} ♡♡".format(fudgee_id))
-    await ctx.message.delete()
 
 
 @bot.command(name="oath")
