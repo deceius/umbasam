@@ -71,7 +71,7 @@ async def cmd_oath(ctx, arg):
         await ctx.channel.send(content = result)
 
 @bot.command(name="ragingwave")
-async def cmd_ragingwave(ctx, arg):
+async def cmd_ragingwave(ctx):
     await ctx.channel.send(content = "https://media.discordapp.net/attachments/873398167587131452/881538330280488970/ragingwave.png")
     
 
