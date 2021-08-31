@@ -75,6 +75,12 @@ async def cmd_ragingwave(ctx):
     await ctx.channel.send(content = "https://media.discordapp.net/attachments/873398167587131452/881538330280488970/ragingwave.png")
     
 
+@bot.command(name="acrolove")
+async def cmd_acrolove(ctx):
+    acro_id = '<@127613781089058816>'
+    await ctx.channel.send(content = "Mahal ka ng Oath {0} ♡♡".format(acro_id))
+
+
 @bot.command(name="mdps")
 async def cmd_party_set_role(ctx, arg):
     if await caravan.is_caravan_leader(ctx.message):
