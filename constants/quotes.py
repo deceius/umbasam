@@ -54,6 +54,9 @@ OATH_QUOTES = {
     "fudgee": [
         "#Oath_Fudgee.mp3"
     ],
+    "yato": [
+        "#Oath_Yato.mp4"
+    ],
     "yuuka": [
         "IZZY DOGSHIT"
     ],
