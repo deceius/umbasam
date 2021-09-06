@@ -158,7 +158,7 @@ async def cmd_umbaguide(ctx, arg):
 
 @bot.command('cta')
 async def cmd_cta(ctx):
-    if mageraid.has_officer_role(ctx.message.author, strings.SEASON_RAID_OFFICER_ID):
+    if mageraid.has_officer_role(ctx.message.author, strings.ROUND_TABLE_ID):
         await ctx.channel.send(content = "{0} ".format("@here")+ quotes.generate_cta()[0])
     else:
         await ctx.channel.send(content = "YOU CAN'T @ everyone. YOU HAVE NO POWAH HERE. ANYWAY, "+ quotes.generate_cta()[0])

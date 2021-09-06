@@ -7,6 +7,7 @@ OFFICER_CONFIRMATION="Officer Confirmation"
 SIPHONED_ENERGY_COUNT="Siphoned Energy Count"
 SEASON_RAID_OFFICER_ID=873422252698374164
 SHOTCALLER="Shotcaller"
+ROUND_TABLE_ID=855358999284023346
 ROUND_TABLE="Round Table"
 STATUS="Status"
 PROMPT="⚔️ from Officer to confirm mage raid\n☠️ from Party Lead / Reporter to cancel mage raid"
