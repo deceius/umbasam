@@ -60,6 +60,9 @@ OATH_QUOTES = {
     "yuuka": [
         "IZZY DOGSHIT"
     ],
+    "baldur": [
+        "https://media.discordapp.net/attachments/873398167587131452/886637910143688734/unknown-7.png"
+    ],
     "edutensie": [
         "WALA KAYO SA FIREWALL KO",
         "tanginang manok to ang ingay, tinola ka saken mamaya"
