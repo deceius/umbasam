@@ -61,7 +61,8 @@ OATH_QUOTES = {
         "IZZY DOGSHIT"
     ],
     "baldur": [
-        "https://media.discordapp.net/attachments/873398167587131452/886637910143688734/unknown-7.png"
+        "https://media.discordapp.net/attachments/873398167587131452/886637910143688734/unknown-7.png",
+        "https://media.discordapp.net/attachments/873398167587131452/886638412277371000/unknown.png"
     ],
     "edutensie": [
         "WALA KAYO SA FIREWALL KO",
