@@ -111,7 +111,7 @@ OATH_QUOTES = {
         "Par quota kana?"
     ],
     "momo": [
-        "Pag di babae, pass",
+        "https://media.discordapp.net/attachments/873398167587131452/886920315177955338/unknown.png",
         "babae ka?"
     ],
     "wise": [
