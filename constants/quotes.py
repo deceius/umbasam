@@ -114,6 +114,9 @@ OATH_QUOTES = {
         "https://media.discordapp.net/attachments/873398167587131452/886920315177955338/unknown.png",
         "babae ka?"
     ],
+    "emyl": [
+        "https://media.discordapp.net/attachments/873398167587131452/886921014464888852/IMG_20210913_182535.png"
+    ],
     "wise": [
         "Eyes on the food tayu mga sir",
         "eto 20 man gamit na"
