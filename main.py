@@ -52,7 +52,7 @@ async def cmd_dm(ctx, user: discord.User, msg):
         log_channel = bot.get_channel(tokens.WARNING_LOGS_CHANNEL_ID)
         file = open("judwatch.png", "rb")
         await log_channel.send("{0} DM'd {1}: {2}".format(ctx.author.name, user.name, msg))
-        await user.send(content = msg, file = file)
+        await user.send(content = msg, file =  discord.File(file))
         await ctx.message.delete()
     
 
