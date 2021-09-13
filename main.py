@@ -60,6 +60,11 @@ async def cmd_fudgeethanks(ctx):
     fudgee_id = '<@279712702816059392>'
     await ctx.channel.send(content = "Thank you {0} ♡♡".format(fudgee_id))
 
+    
+@bot.command(name="judwigcares")
+async def cmd_judwig(ctx):
+    await ctx.channel.send(content = "https://media.discordapp.net/attachments/873398167587131452/887017963146866708/unknown.png")
+
 
 @bot.command(name="oath")
 async def cmd_oath(ctx, arg):
