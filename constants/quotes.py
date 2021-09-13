@@ -54,6 +54,9 @@ OATH_QUOTES = {
     "fudgee": [
         "#Oath_Fudgee.mp3"
     ],
+    "hannah": [
+        "https://c.tenor.com/BP79uBTrSy0AAAAd/loading-discord.gif"
+    ],
     "yato": [
         "#Oath_Yato.mp4"
     ],
