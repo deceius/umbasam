@@ -144,7 +144,7 @@ OATH_QUOTES = {
         "HI PO",
     ],
     "gwynfor": [
-        "Gwynfor Foundation ang bahala sayo",
+        "https://media.discordapp.net/attachments/873398167587131452/886923138741444648/unknown.png",
         "https://media.discordapp.net/attachments/824827071829377055/838783996316876871/g2.png"
     ],
     "silver": [
