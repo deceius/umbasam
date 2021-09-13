@@ -50,7 +50,7 @@ async def cmd_dm(ctx, user: discord.User, msg):
     print(user)
     if mageraid.has_officer_role(ctx.author, strings.SEASON_RAID_OFFICER_ID):
         log_channel = bot.get_channel(tokens.WARNING_LOGS_CHANNEL_ID)
-        file = open("https://media.discordapp.net/attachments/873398167587131452/887017963146866708/unknown.png", "rb")
+        file = open("judwatch.png", "rb")
         await log_channel.send("{0} DM'd {1}: {2}".format(ctx.author.name, user.name, msg))
         await user.send(content = msg, file = file)
         await ctx.message.delete()
