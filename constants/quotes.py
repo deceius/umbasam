@@ -143,6 +143,9 @@ OATH_QUOTES = {
         "HIPO",
         "HI PO",
     ],
+    "jaboys": [
+        "https://media.discordapp.net/attachments/873398167587131452/887014442657792010/unknown.png",
+    ],
     "gwynfor": [
         "https://media.discordapp.net/attachments/873398167587131452/886923138741444648/unknown.png",
         "https://media.discordapp.net/attachments/824827071829377055/838783996316876871/g2.png"
