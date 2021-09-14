@@ -122,6 +122,12 @@ OATH_QUOTES = {
         "Par quota nako",
         "Par quota kana?"
     ],
+    "kidface": [
+        "https://media.discordapp.net/attachments/873398167587131452/887382399569264720/unknown.png"
+    ],
+    "notkidface": [
+        "https://media.discordapp.net/attachments/873398167587131452/887382463247187978/unknown.png"
+    ],
     "momo": [
         "https://media.discordapp.net/attachments/873398167587131452/886920315177955338/unknown.png"
     ],
