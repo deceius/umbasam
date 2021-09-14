@@ -20,7 +20,7 @@ ASK_JUDWIG = [
     "'Give them orgasm they will give you more' - Judwig 1:8",
     "'Nasa tamang spot lang yan ika ni Jacob' - Judwig 1:6",
     "'kunin ko na yan sa langit' - Judwig 1:12",
-    "'Jesus is coming to town' - Judwig 12:54"
+    "'Jesus is coming to town' - Judwig 12:54",
     "'Full spec na po ako sa Holy staff' - Judwig 8:31"]
 
 AO_CITIES = ["Thetford", "Bridgewatch", "Caerleon", "Lymhurst", "Fort Sterling", "Archganistan", "Quezon City"]
