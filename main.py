@@ -41,6 +41,10 @@ async def on_message(message):
     if commands.UMBASAM in message.content:
         await message.channel.send(content = quotes.generate_quote()[0])
         return
+    
+    if commands.JUDWIG in message.content:
+        await message.channel.send(content = quotes.generate_judwig_quote()[0])
+        return
     # single liner commands go here
     await bot.process_commands(message)
 

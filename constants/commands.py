@@ -2,6 +2,7 @@ MAGE_START="!mageraid"
 MAGE_SIPHONED="!siphoned"
 MAGE_OUTCOME="!outcome"
 UMBASAM = "!umbasam"
+JUDWIG = "!askjudwig"
 
 CASTLE_START="!castleraid"
 

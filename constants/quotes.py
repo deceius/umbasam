@@ -12,6 +12,12 @@ UMBASAM_QUOTES = [
     "https://images-ext-1.discordapp.net/external/kly3CMj7PVjit-4QWyqV6L5UDQdZVm7bMyyrVWqrZHE/https/media.discordapp.net/attachments/760867287787634729/841988749343850566/SAM_GIF_2.gif"
 ]
 
+
+ASK_JUDWIG = [
+    "'Maging mapagpatawad sa kapwa pero puta bakit kasi tumakbo? Nalimutan ko ata lagyan ng bayag sorry' -Judwig 9:6",
+    "'pagbasa sa bersikulo kwatro kwantos emperador hanggang redhorse.......ang hindi sasapi sa iglesia ni judwig kakagatin ni baldur' -Ezo 1:5"
+    ]
+
 AO_CITIES = ["Thetford", "Bridgewatch", "Caerleon", "Lymhurst", "Fort Sterling", "Archganistan", "Quezon City"]
 OATH_QUOTES = {
     "meat": [ 
