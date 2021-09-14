@@ -55,7 +55,8 @@ OATH_QUOTES = {
         "#Oath_Fudgee.mp3"
     ],
     "yato": [
-        "#Oath_Yato.mp4"
+        "#Oath_Yato.mp4",
+        "https://images-ext-1.discordapp.net/external/9u1kYl0xXecywxoSmYi9cRXgLtfHiuoY4L6Uu27pTnc/https/c.tenor.com/0xEyi1nBkegAAAAM/napkinreveal-george.gif"
     ],
     "yuuka": [
         "IZZY DOGSHIT"
