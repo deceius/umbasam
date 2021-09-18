@@ -33,10 +33,7 @@ OATH_QUOTES = {
         "https://media.discordapp.net/attachments/839303530946494475/876097198390136882/unknown.png"
     ],
     "tanod": [
-        "HEY KID... DO YOU WANNA CARAVAN?",
-        "HINDI ESSENTIAL ANG LUGAW MGA SER.",
-        "ECQ NA. SAN QUARANTINE PASS?",
-        "SANAOL TANOD",
+        "#oath_tanod.mp4"
     ],
     "ryota": [
         "https://youtu.be/NTdjCgnLGsM",
