@@ -66,6 +66,12 @@ async def cmd_fudgeethanks(ctx):
     await ctx.channel.send(content = "Thank you {0} ♡♡".format(fudgee_id))
 
     
+    
+@bot.command(name="poglog")
+async def cmd_poglog(ctx):
+    file = open("poglog.mp4", "rb")
+    await ctx.channel.send(file = discord.File(file))
+
 @bot.command(name="judwigcares")
 async def cmd_judwig(ctx):
     await ctx.channel.send(content = "https://media.discordapp.net/attachments/873398167587131452/887017963146866708/unknown.png")
