@@ -18,3 +18,9 @@ def is_integer(n):
         return False
     else:
         return float(n).is_integer()
+
+def has_role(user, role_id):
+    for role in user.roles:
+        if role.id == role_id:
+            return True
+    return False        

@@ -33,7 +33,7 @@ OATH_QUOTES = {
         "https://media.discordapp.net/attachments/839303530946494475/876097198390136882/unknown.png"
     ],
     "tanod": [
-        "#oath_tanod.mp4",
+        "#files/oath_tanod.mp4",
     ],
     "morethin" : [
         "https://media.discordapp.net/attachments/839303530946494475/890829709661831198/unknown.png"
@@ -63,10 +63,10 @@ OATH_QUOTES = {
         "DOGSHIT!!!",
     ],
     "fudgee": [
-        "#Oath_Fudgee.mp3"
+        "#files/Oath_Fudgee.mp3"
     ],
     "yato": [
-        "#Oath_Yato.mp4",
+        "#files/Oath_Yato.mp4",
         "https://images-ext-1.discordapp.net/external/9u1kYl0xXecywxoSmYi9cRXgLtfHiuoY4L6Uu27pTnc/https/c.tenor.com/0xEyi1nBkegAAAAM/napkinreveal-george.gif"
     ],
     "yuuka": [
@@ -145,7 +145,7 @@ OATH_QUOTES = {
         "https://youtu.be/SJK2nfPAqzQ"
     ],
     "aomond": [
-        "#Oath_Aomond_1.mp3"
+        "#files/Oath_Aomond_1.mp3"
     ],
     "grant": [
         "Madidismount ko na. Madidismount ko na. MADIDISMOUNT KO NAAAAAAAA",
