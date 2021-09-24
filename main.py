@@ -50,7 +50,9 @@ async def on_message(message):
 
 @bot.command(name="sendmsg")
 async def cmd_sendmsg(ctx, *, arg):
+    await ctx.message.delete()
     await ctx.channel.send(arg)
+    
 @bot.command(name="umbawarn")
 async def cmd_dm(ctx, user: discord.User, msg):
     print(user)
