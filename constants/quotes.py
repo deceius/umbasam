@@ -33,7 +33,10 @@ OATH_QUOTES = {
         "https://media.discordapp.net/attachments/839303530946494475/876097198390136882/unknown.png"
     ],
     "tanod": [
-        "#oath_tanod.mp4"
+        "#oath_tanod.mp4",
+    ],
+    "morethin" : [
+        "https://media.discordapp.net/attachments/839303530946494475/890829709661831198/unknown.png"
     ],
     "ryota": [
         "https://youtu.be/NTdjCgnLGsM",
