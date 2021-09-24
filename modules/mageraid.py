@@ -34,6 +34,7 @@ async def start(ctx, bot, user):
                 )
             ]
         ])
+    await ctx.message.delete()
 
 
 
@@ -47,7 +48,7 @@ async def btn_add_5(interaction):
 async def btn_join(interaction):
     success = await add_member(interaction.message, interaction.user)
     if (success):
-         await interaction.respond()
+         await interaction.respond(type = 6)
     else:
          await interaction.send(content = "You are already in this mage party.")
 
@@ -58,7 +59,7 @@ async def btn_finish(interaction):
         embed_dict["color"] = strings.COLOR_SUCCESS
         embed = discord.Embed.from_dict(embed_dict)
         await interaction.message.edit(embed = embed, components = [])
-        await interaction.respond()
+        await interaction.respond(type = 6)
     else:
         await interaction.send(content = "You are not the party leader of this mage raid.")
 
@@ -72,7 +73,7 @@ async def siphoned_update(interaction, for_add):
                 field["value"] = int(field["value"].strip()) + for_add
         embed = discord.Embed.from_dict(embed_dict)
         await msg.edit(embed = embed)
-        await interaction.respond()
+        await interaction.respond(type = 6)
     else:
         await interaction.send(content = "You are not the party leader of this mage raid.")
 

@@ -24,26 +24,27 @@ async def avaraid(ctx, *, arg):
 
 @bot.command()
 async def desc(ctx, *, arg):
-    util.set_description(ctx, arg)
+   await util.set_description(ctx, arg)
 
 @bot.command()
 async def tank(ctx, *, arg):
-    await ava.set_role_qty(ctx, "🛡️ TANK",  arg)
+    await ava.set_role_qty(ctx, "TANK",  arg)
+
 
 @bot.command()
 async def dps(ctx, *, arg):
-    await ava.set_role_qty(ctx, "🏹 DPS",  arg)
+    await ava.set_role_qty(ctx, "DPS",  arg)
         
 @bot.command()
 async def heal(ctx, *, arg):
-    await ava.set_role_qty(ctx, "💚 HEAL",  arg)
+    await ava.set_role_qty(ctx, "HEAL",  arg)
 
 @bot.command()
 async def supp(ctx, *, arg):
-    await ava.set_role_qty(ctx, "🔮 SUPP", arg)
+    await ava.set_role_qty(ctx, "SUPP", arg)
 
 @bot.command()
 async def cta_attendance(ctx, *, arg):
-    await ava.set_role_qty(ctx, "🔮 SUPP", arg)
+    await ava.set_role_qty(ctx, "SUPP", arg)
 
 bot.run(tokens.BOT_TOKEN)
