@@ -52,7 +52,7 @@ OATH_QUOTES = {
         "https://media.discordapp.net/attachments/835664346319290408/876174314163036200/ezgif.com-gif-maker.gif"
     ],
     "force": [
-        "SHOTCALLER AKO NG BRIDGEWATCH EH.",
+        "https://media.discordapp.net/attachments/873398167587131452/890807980566650880/unknown.png",
     ],
     "acro": [
         "SOGDHIT.",
