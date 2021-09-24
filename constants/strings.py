@@ -1,7 +1,8 @@
 TITLE="Mage Raid Incentive Tracker"
 
 ID="ID"
-PARTY_LEADER="Party Lead / Reporter"
+PARTY_LEADER="Party Lead"
+PARTY_MEMBERS = "Party Members"
 DATETIME="Date / Time"
 OFFICER_CONFIRMATION="Officer Confirmation"
 SIPHONED_ENERGY_COUNT="Siphoned Energy Count"
@@ -21,6 +22,7 @@ STATUS_SUCCESS="Confirmed"
 COLOR_SUCCESS=0x00ff00
 
 MAGE_RAID_START="{0.mention} has led a mage raid!"
+AVA_RAID_START="{0.mention} has led an avalonian raid!"
 
 ERROR_SIPHONED="{0.mention} Siphoned Energy Update Error. It's either you are not the party lead or you replied to an invalid / resolved mage raid."
 ERROR_SEASON_RAID_OFFICER="{0.mention} nice try. But you are not a mage raid officer."
