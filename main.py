@@ -32,7 +32,6 @@ def validate_reaction(embed_dict, reaction, user):
         return False
     return True
 
-
 @bot.event
 async def on_message(message):
     # we do not want the bot to reply to itself
@@ -49,6 +48,9 @@ async def on_message(message):
     await bot.process_commands(message)
 
 
+@bot.command(name="sendmsg")
+async def cmd_sendmsg(ctx, *, arg):
+    await ctx.channel.send(arg)
 @bot.command(name="umbawarn")
 async def cmd_dm(ctx, user: discord.User, msg):
     print(user)
