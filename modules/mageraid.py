@@ -93,16 +93,16 @@ async def add_member(msg, member):
         return False
     for field in embed_dict["fields"]:
         if field["name"] == strings.PARTY_MEMBERS:
-            if (member.mention in field["value"]):
-                field["value"] = field["value"].replace(member.mention + "\n", "")
-                field["value"] = field["value"].replace(member.mention, "")
+            if (member.display_name in field["value"]):
+                field["value"] = field["value"].replace(member.display_name + "\n", "")
+                field["value"] = field["value"].replace(member.display_name, "")
                 if (len(field["value"]) == 0):
                     field["value"] = "--"
             else:
                 if (field["value"] == "--"):
-                    field["value"] = member.mention
+                    field["value"] = member.display_name
                 else:
-                    field["value"] = field["value"] + "\n" + member.mention
+                    field["value"] = field["value"] + "\n" + member.display_name
     embed = discord.Embed.from_dict(embed_dict)
     await msg.edit(embed = embed)
     return True
