@@ -105,7 +105,29 @@ async def btn_join_supp(interaction):
 async def btn_join(interaction, member, role):
     msg = interaction.message
     embed_dict = msg.embeds[0].to_dict()
-    is_full = False
+    is_full = await process_join(member, role, embed_dict)
+    
+    if not is_full:
+        embed = discord.Embed.from_dict(embed_dict)
+        await msg.edit(embed = embed) 
+        await interaction.respond(type = 6)
+    else:
+        await interaction.send(content = "The {0} is already full.".format(role))
+
+async def btn_join(interaction, member, role):
+    msg = interaction.message
+    is_full = await process_join(member, role, msg)
+    if not is_full: 
+        await interaction.respond(type = 6)
+    else:
+        await interaction.send(content = "The {0} is already full.".format(role))
+
+async def join_to_role(member, role, msg):
+    await process_join(member, role, msg)
+
+async def process_join(member, role, msg):
+    result = False
+    embed_dict = msg.embeds[0].to_dict()
     for field in embed_dict["fields"]:
         if " - " in field["name"]:
             role_header = field["name"].split(" - ")
@@ -117,7 +139,7 @@ async def btn_join(interaction, member, role):
                 is_full = int(role_header[1]) == len(field["value"].replace("--", "").splitlines())
                 print(is_full)
                 if is_full and member.mention not in field["value"]:
-                    await interaction.send(content = "The {0} is already full.".format(role))
+                    result = True
                     break
             if (member.mention in field["value"]):
                 field["value"] = field["value"].replace(member.mention + "\n", "")
@@ -136,14 +158,9 @@ async def btn_join(interaction, member, role):
                 if (len(field["value"]) == 0):
                     field["value"] = "--"
 
-            
-           
-  
     embed = discord.Embed.from_dict(embed_dict)
-    
-
-    await msg.edit(embed = embed) 
-    await interaction.respond(type = 6)
+    await msg.edit(embed = embed)
+    return result
 
 async def set_role_qty(ctx, role, arg):
     message = ctx.message
@@ -163,6 +180,4 @@ async def set_role_qty(ctx, role, arg):
                     
             embed = discord.Embed.from_dict(embed_dict)
             await msg.edit(embed = embed)
-            await ctx.message.delete()
-        else:
-            await ctx.message.delete()
+        await message.delete()

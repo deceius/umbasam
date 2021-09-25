@@ -57,7 +57,15 @@ async def desc(ctx, *, arg):
 
 @bot.command()
 async def tank(ctx, *, arg):
-    await lfg.set_role_qty(ctx, "TANK",  arg)
+    await lfg.set_role_qty(ctx, "TANK", arg)
+
+@bot.command()
+async def add_role(ctx, role, user: discord.User):
+    message = ctx.message
+    if message.reference is not None:
+        msg = await message.channel.fetch_message(message.reference.message_id)
+        await lfg.join_to_role(user, role.upper(),  msg)
+    await message.delete()
 
 
 @bot.command()
