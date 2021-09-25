@@ -120,6 +120,7 @@ async def btn_join(interaction, member, role):
                     await interaction.send(content = "The {0} is already full.".format(role))
                     break
             if (member.mention in field["value"]):
+                field["value"] = field["value"].replace(member.mention + "\n", "")
                 field["value"] = field["value"].replace(member.mention, "")
                 if (len(field["value"]) == 0):
                     field["value"] = "--"
