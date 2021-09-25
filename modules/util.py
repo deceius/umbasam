@@ -1,15 +1,19 @@
 
 import discord
+import constants.strings as strings
 
 async def set_description(ctx, arg):
     message = ctx.message
     if message.reference is not None:
         msg = await message.channel.fetch_message(message.reference.message_id)
-        embed_dict = msg.embeds[0].to_dict()
+        embed_dict = msg.embeds[0].to_dict()    
+        if embed_dict["color"] == strings.COLOR_SUCCESS:
+            return False
         embed_dict["description"] = arg
         embed = discord.Embed.from_dict(embed_dict)
         await msg.edit(embed = embed)
         await ctx.message.delete()
+        return True
 
 def is_integer(n):
     try:

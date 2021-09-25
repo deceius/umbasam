@@ -24,6 +24,22 @@ async def mage(ctx, user: discord.User = None):
     await mageraid.start(ctx, bot, user)
 
 @bot.command()
+async def mage_add(ctx, user: discord.User):
+    message = ctx.message
+    if message.reference is not None:
+        msg = await message.channel.fetch_message(message.reference.message_id)
+        await mageraid.add_member(msg, user)
+    await ctx.message.delete()
+
+@bot.command()
+async def energy(ctx, arg):
+    message = ctx.message
+    if message.reference is not None:
+        msg = await message.channel.fetch_message(message.reference.message_id)
+        await mageraid.process_siphoned(msg, int(arg))
+    await ctx.message.delete()
+
+@bot.command()
 async def ava(ctx, *, arg):
     await avaraid.start(ctx, bot, arg)
     
