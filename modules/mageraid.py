@@ -94,6 +94,7 @@ async def add_member(msg, member):
     for field in embed_dict["fields"]:
         if field["name"] == strings.PARTY_MEMBERS:
             if (member.mention in field["value"]):
+                field["value"] = field["value"].replace(member.mention + "\n", "")
                 field["value"] = field["value"].replace(member.mention, "")
                 if (len(field["value"]) == 0):
                     field["value"] = "--"

@@ -130,6 +130,7 @@ async def btn_join(interaction, member, role):
                     field["value"] = field["value"] + "\n" + member.mention
         else:
             if (member.mention in field["value"]):
+                field["value"] = field["value"].replace(member.mention + "\n", "")
                 field["value"] = field["value"].replace(member.mention, "")
                 if (len(field["value"]) == 0):
                     field["value"] = "--"
