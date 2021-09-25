@@ -10,7 +10,6 @@ import modules.lfg as lfg
 import modules.quotes as quotes
 from discord_components import ComponentsBot
 
-
 bot = ComponentsBot("!")
 
 @bot.event
@@ -67,16 +66,13 @@ async def add_role(ctx, role, user: discord.User):
         await lfg.join_to_role(user, role.upper(),  msg)
     await message.delete()
 
-
 @bot.command()
 async def mdps(ctx, *, arg):
     await lfg.set_role_qty(ctx, "MDPS",  arg)
-
     
 @bot.command()
 async def rdps(ctx, *, arg):
     await lfg.set_role_qty(ctx, "RDPS",  arg)
-
 
 @bot.command()
 async def dps(ctx, *, arg):
@@ -90,39 +86,36 @@ async def heal(ctx, *, arg):
 async def supp(ctx, *, arg):
     await lfg.set_role_qty(ctx, "SUPP", arg)
 
+# @bot.command()
+# async def oath(ctx, arg):
+#     result = quotes.generate_oath(arg.lower())
+#     if result.startswith("#"):
+#         file = open(result[1:], "rb")
+#         await ctx.channel.send(file = discord.File(file))
+#     else:
+#         await ctx.channel.send(content = result)
 
-@bot.command()
-async def oath(ctx, arg):
-    result = quotes.generate_oath(arg.lower())
-    if result.startswith("#"):
-        file = open(result[1:], "rb")
-        await ctx.channel.send(file = discord.File(file))
-    else:
-        await ctx.channel.send(content = result)
+# @bot.command()
+# async def poglog(ctx):
+#     file = open("files/poglog.mp4", "rb")
+#     await ctx.channel.send(file = discord.File(file))
 
+# @bot.command()
+# async def judwigcares(ctx):
+#     await ctx.channel.send(content = "https://media.discordapp.net/attachments/873398167587131452/887017963146866708/unknown.png")
 
-@bot.command()
-async def poglog(ctx):
-    file = open("files/poglog.mp4", "rb")
-    await ctx.channel.send(file = discord.File(file))
-
-@bot.command()
-async def judwigcares(ctx):
-    await ctx.channel.send(content = "https://media.discordapp.net/attachments/873398167587131452/887017963146866708/unknown.png")
-
-
-@bot.event
-async def on_message(message):
-    # we do not want the bot to reply to itself
-    if message.author == bot.user:
-        return
-    if commands.UMBASAM in message.content:
-        await message.channel.send(content = quotes.generate_quote()[0])
-        return
-    if commands.JUDWIG in message.content:
-        await message.channel.send(content = quotes.generate_judwig_quote()[0])
-        return
-    # single liner commands go here
-    await bot.process_commands(message)
+# @bot.event
+# async def on_message(message):
+#     # we do not want the bot to reply to itself
+#     if message.author == bot.user:
+#         return
+#     if commands.UMBASAM in message.content:
+#         await message.channel.send(content = quotes.generate_quote()[0])
+#         return
+#     if commands.JUDWIG in message.content:
+#         await message.channel.send(content = quotes.generate_judwig_quote()[0])
+#         return
+#     # single liner commands go here
+#     await bot.process_commands(message)
 
 bot.run(tokens.BOT_TOKEN)
